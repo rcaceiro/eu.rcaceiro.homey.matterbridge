@@ -24,6 +24,9 @@ export abstract class HomeyDevice implements Device {
 
         this.serial_number = this.device.settings.zb_ieee_address
         if (this.serial_number == null) {
+            this.serial_number = this.device.data.uuid
+        }
+        if (this.serial_number == null) {
             this.serial_number = this.device.id
         }
 

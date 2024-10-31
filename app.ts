@@ -72,7 +72,6 @@ class MatterBridgeApplication extends Homey.App {
                 continue;
             }
             this.mDevices.add(matter);
-            break
         }
     }
 }

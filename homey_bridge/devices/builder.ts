@@ -1,6 +1,7 @@
 import {WeatherDevice} from "./weather_device";
 import {HomeyDevice} from "./device";
 import {ContactDevice} from "./contact_device";
+import {SocketDevice} from "./socket_device";
 
 export class HomeyDeviceBuilder {
     public static async create(device: any, firmware_version: string): Promise<HomeyDevice | null> {
@@ -25,6 +26,9 @@ export class HomeyDeviceBuilder {
     }
 
     private static async createSocket(device: any, firmware_version: string): Promise<HomeyDevice | null> {
+        if (device.capabilities.includes('onoff')) {
+            return new SocketDevice(device, firmware_version)
+        }
         return null;
     }
 }
