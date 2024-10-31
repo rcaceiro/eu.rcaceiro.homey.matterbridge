@@ -1,0 +1,30 @@
+{
+  "id": "eu.rcaceiro.homey.matterbridge",
+  "version": "1.0.0",
+  "compatibility": ">=12.2.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "matter.bridge"
+  },
+  "description": {
+    "en": "matter.bridge is a bridge that allows expose homey devices to Matter protocol"
+  },
+  "category": [
+    "tools"
+  ],
+  "permissions": [
+    "homey:manager:api"
+  ],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Rúben Caceiro",
+    "email": "caceiro.ruben@gmail.com"
+  }
+}
