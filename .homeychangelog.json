@@ -1,0 +1,17 @@
+{
+  "1.0.0": {
+    "da": "Første udgivelse. Lad os prøve det og se om det fungerer godt. Det understøtter vejrsensorer (temperatur, fugtighed og tryk), kontaktsensorer og stikkontakter uden energimåling.",
+    "de": "Erste Version. Lassen Sie uns es ausprobieren und sehen, ob es funktioniert. Es unterstützt Wettersensoren (Temperatur, Feuchtigkeit und Druck), Kontaktsensorer und Steckdosen ohne Energiemessung.",
+    "en": "First release. Lets give it a run and see if it works ok, it supports weather sensors(temperature, humidity and pressure), contact sensors and socket without energy measurement.",
+    "es": "Primer lanzamiento. Vamos a probarlo y ver si funciona bien. Admite sensores meteorológicos (temperatura, humedad y presión), sensores de contacto y enchufes sin medición de energía.",
+    "fr": "Première version. Essayons et voyons si cela fonctionne correctement. Il prend en charge les capteurs météorologiques (température, humidité et pression), les capteurs de contact et les prises sans mesure d'énergie.",
+    "it": "Prima versione. Proviamolo e vediamo se funziona correttamente. Supporta sensori meteorologici (temperatura, umidità e pressione), sensori di contatto e prese senza misurazione dell'energia.",
+    "ko": "첫 번째 릴리스입니다. 실행해 보고 제대로 작동하는지 확인해 보세요. 날씨 센서(온도, 습도, 기압), 접촉 센서, 에너지 측정 없는 소켓을 지원합니다.",
+    "nl": "Eerste release. Laten we het eens proberen en kijken of het goed werkt. Het ondersteunt weersensoren (temperatuur, vochtigheid en druk), contactsensoren en stopcontacten zonder energiemeting.",
+    "no": "Første utgivelse. La oss prøve det og se om det fungerer bra. Det støtter værsensorer (temperatur, fuktighet og trykk), kontaktsensorer og stikkontakter uten energimåling.",
+    "pl": "Pierwsze wydanie. Sprawdźmy, czy działa poprawnie. Obsługuje czujniki pogodowe (temperatura, wilgotność i ciśnienie), czujniki kontaktowe i gniazdka bez pomiaru energii.",
+    "pt": "Primeira versão. Vamos testá-lo e ver se funciona corretamente. Suporta sensores meteorológicos (temperatura, humidade e pressão), sensores de contacto e tomadas sem medição de energia.",
+    "ru": "Первый релиз. Давайте попробуем и посмотрим, работает ли он нормально. Он поддерживает датчики погоды (температура, влажность и давление), датчики контакта и розетки без измерения энергии.",
+    "sv": "Första utgåvan. Låt oss prova och se om det fungerar bra. Det stöder vädersensorer (temperatur, luftfuktighet och tryck), kontaktsensorer och uttag utan energimätning."
+  }
+}

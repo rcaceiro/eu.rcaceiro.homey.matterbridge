@@ -11,7 +11,6 @@ export class Capability {
         this.mSubject = new BehaviorSubject(null as string | number | boolean | null);
         this.mCapability = device.makeCapabilityInstance(capability_id, (value) => {
             this.mSubject.next(value);
-            console.log(`Device ${capability_id} changed to:`, value);
         });
         this.mSubject.next(this.mCapability.value);
     }
