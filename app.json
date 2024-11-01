@@ -1,3 +1,187 @@
 {
-  "_comment": "This file is generated. Please edit .homeycompose/app.json instead."
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "brandColor": "#800080",
+  "compatibility": ">=12.2.0",
+  "homeyCommunityTopicId": 0,
+  "id": "eu.rcaceiro.homey.matterbridge",
+  "sdk": 3,
+  "source": "https://github.com/rcaceiro/eu.rcaceiro.homey.matterbridge",
+  "support": "https://github.com/rcaceiro/eu.rcaceiro.homey.matterbridge/issues",
+  "version": "1.0.0",
+  "author": {
+    "name": "Rúben Caceiro"
+  },
+  "bugs": {
+    "url": "https://github.com/rcaceiro/eu.rcaceiro.homey.matterbridge/issues"
+  },
+  "category": [
+    "tools"
+  ],
+  "connectivity": [
+    "lan"
+  ],
+  "contributors": {
+    "developers": [],
+    "translators": []
+  },
+  "description": {
+    "da": "Forbind dine Homey-enheder sømløst til Matter-økosystemet for enhedlig kontrol og udvidet kompatibilitet på tværs af forskellige smarte hjemplatforme.",
+    "de": "Verbinden Sie Ihre Homey-Geräte nahtlos mit dem Matter-Ökosystem für eine einheitliche Steuerung und erweiterte Kompatibilität mit verschiedenen Smart-Home-Plattformen.",
+    "en": "Seamlessly connect your Homey devices to the Matter ecosystem, enabling unified control and expanded compatibility across smart home platforms.",
+    "es": "Conecte sus dispositivos Homey sin problemas al ecosistema Matter, lo que permite un control unificado y una compatibilidad ampliada con diversas plataformas de hogares inteligentes.",
+    "fr": "Connectez vos appareils Homey en toute transparence à l'écosystème Matter pour un contrôle unifié et une compatibilité étendue avec diverses plateformes de maison intelligente.",
+    "it": "Collega i tuoi dispositivi Homey in modo trasparente all'ecosistema Matter, abilitando un controllo unificato e una compatibilità estesa tra diverse piattaforme per la casa intelligente.",
+    "ko": "Homey 장치를 Matter 생태계에 원활하게 연결하여 통합 제어 및 다양한 스마트 홈 플랫폼 간의 확장된 호환성을 활성화합니다.",
+    "nl": "Verbind uw Homey-apparaten naadloos met het Matter-ecosysteem voor gecentraliseerde bediening en uitgebreide compatibiliteit met verschillende smart-homeplatforms.",
+    "no": "Koble Homey-enhetene dine sømløst til Matter-økosystemet for enhetlig kontroll og utvidet kompatibilitet på tvers av smarte hjemplattformer.",
+    "pl": "Łączy bezproblemowo urządzenia Homey z ekosystemem Matter, umożliwiając jednolity kontrolę i rozszerzoną kompatybilność z różnymi platformami inteligentnego domu.",
+    "pt": "Conecta os teus dispositivos Homey ao ecossistema Matter e desfruta de controlo unificado e maior compatibilidade entre plataformas de casa inteligente.",
+    "ru": "Бесшовно подключайте свои устройства Homey к экосистеме Matter для унифицированного управления и расширенной совместимости с различными платформами умного дома.",
+    "sv": "Anslut dina Homey-enheter sömlöst till Matter-ekosystemet för enhetlig kontroll och utökad kompatibilitet med olika smarta hemplattformar."
+  },
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "name": {
+    "da": "HomeyMatter Link",
+    "de": "HomeyMatter Link",
+    "en": "HomeyMatter Link",
+    "es": "HomeyMatter Link",
+    "fr": "HomeyMatter Link",
+    "it": "HomeyMatter Link",
+    "ko": "HomeyMatter Link",
+    "nl": "HomeyMatter Link",
+    "no": "HomeyMatter Link",
+    "pl": "HomeyMatter Link",
+    "pt": "HomeyMatter Link",
+    "ru": "HomeyMatter Link",
+    "sv": "HomeyMatter Link"
+  },
+  "permissions": [
+    "homey:manager:api"
+  ],
+  "platforms": [
+    "local"
+  ],
+  "tags": {
+    "da": [
+      "Smart hjem",
+      "Smarte enheder",
+      "IoT",
+      "Matter-protokol",
+      "Matter-integration",
+      "Enhedsstyring",
+      "Smart hjem-kompatibilitet"
+    ],
+    "de": [
+      "Smartes Zuhause",
+      "Smart Devices",
+      "IoT",
+      "Matter-Protokoll",
+      "Matter-Integration",
+      "Gerätesteuerung",
+      "Smart-Home-Kompatibilität"
+    ],
+    "en": [
+      "Smart Home",
+      "Smart Devices",
+      "IoT",
+      "Matter Protocol",
+      "Matter Integration",
+      "Device Control",
+      "Smart Home Compatibility"
+    ],
+    "es": [
+      "Hogar inteligente",
+      "Dispositivos inteligentes",
+      "IoT",
+      "Protocolo Matter",
+      "Integración Matter",
+      "Control de dispositivos",
+      "Compatibilidad con hogares inteligentes"
+    ],
+    "fr": [
+      "Maison intelligente",
+      "Appareils intelligents",
+      "IoT",
+      "Protocole Matter",
+      "Intégration Matter",
+      "Contrôle des appareils",
+      "Compatibilité maison intelligente"
+    ],
+    "it": [
+      "Casa intelligente",
+      "Dispositivi intelligenti",
+      "IoT",
+      "Protocollo Matter",
+      "Integrazione Matter",
+      "Controllo dispositivo",
+      "Compatibilità casa intelligente"
+    ],
+    "ko": [
+      "스마트 홈",
+      "스마트 장치",
+      "IoT",
+      "Matter 프로토콜",
+      "Matter 통합",
+      "장치 제어",
+      "스마트 홈 호환성"
+    ],
+    "nl": [
+      "Slimme woning",
+      "Slimme apparaten",
+      "IoT",
+      "Matter-protocol",
+      "Matter-integratie",
+      "Apparaatbesturing",
+      "Slimme woningcompatibiliteit"
+    ],
+    "no": [
+      "Smart hjem",
+      "Smarte enheter",
+      "IoT",
+      "Matter-protokoll",
+      "Matter-integrering",
+      "Enhetskontroll",
+      "Smart hjem-kompatibilitet"
+    ],
+    "pl": [
+      "Inteligentny dom",
+      "Inteligentne urządzenia",
+      "IoT",
+      "Protokół Matter",
+      "Integracja Matter",
+      "Sterowanie urządzeniami",
+      "Kompatybilność z inteligentnym domem"
+    ],
+    "pt": [
+      "Casa Inteligente",
+      "Dispositivos Inteligentes",
+      "IoT",
+      "Protocolo Matter",
+      "Integração Matter",
+      "Controlo de Dispositivos",
+      "Compatibilidade com Casa Inteligente"
+    ],
+    "ru": [
+      "Умный дом",
+      "Умные устройства",
+      "IoT",
+      "Протокол Matter",
+      "Интеграция Matter",
+      "Управление устройствами",
+      "Совместимость с умным домом"
+    ],
+    "sv": [
+      "Smart hem",
+      "Smarta enheter",
+      "IoT",
+      "Matter-protokollet",
+      "Matter-integration",
+      "Enhetskontroll",
+      "Smart hem-kompatibilitet"
+    ]
+  }
 }

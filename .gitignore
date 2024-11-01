@@ -1,7 +1,7 @@
 /env.json
 /node_modules/
 /.homeybuild/
-
+app.json
 # Created by https://www.toptal.com/developers/gitignore/api/node,intellij+all,macos,linux
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,intellij+all,macos,linux
 
