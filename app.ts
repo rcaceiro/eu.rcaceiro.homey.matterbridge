@@ -38,15 +38,15 @@ class MatterBridgeApplication extends Homey.App {
                 productUrl: "https://homey.app/",
                 productAppearance: {
                     finish: BasicInformation.ProductFinish.Polished,
-                    primaryColor: 0x000000,
+                    primaryColor: BasicInformation.Color.Black,
                 },
             },
             commissioning: {},
+            environment: new HomeyEnvironment(),
             productDescription: {
                 name: "Homey Pro",
                 deviceType: AggregatorEndpoint.deviceType,
             },
-            environment: new HomeyEnvironment(this),
         })
         this.bridge = new Endpoint(
             AggregatorEndpoint,
