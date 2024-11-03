@@ -1,5 +1,5 @@
 {
-  "1.0.0": {
+  "0.0.0": {
     "da": "Første udgivelse. Lad os prøve det og se om det fungerer godt. Det understøtter vejrsensorer (temperatur, fugtighed og tryk), kontaktsensorer og stikkontakter uden energimåling.",
     "de": "Erste Version. Lassen Sie uns es ausprobieren und sehen, ob es funktioniert. Es unterstützt Wettersensoren (Temperatur, Feuchtigkeit und Druck), Kontaktsensorer und Steckdosen ohne Energiemessung.",
     "en": "First release. Lets give it a run and see if it works ok, it supports weather sensors(temperature, humidity and pressure), contact sensors and socket without energy measurement.",
