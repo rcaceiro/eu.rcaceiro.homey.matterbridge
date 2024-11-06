@@ -2,6 +2,8 @@ import {BridgedNodeEndpoint} from "@matter/main/endpoints";
 import {Endpoint} from "@matter/main";
 import {HumiditySensorDevice} from "@matter/main/devices/humidity-sensor";
 import {MatterDevice} from "./device";
+import {PowerSourceServer} from "@matter/main/behaviors";
+import {PowerSource} from "@matter/main/clusters";
 import {PressureSensorDevice} from "@matter/main/devices/pressure-sensor";
 import {TemperatureSensorDevice} from "@matter/main/devices/temperature-sensor";
 import {WeatherDevice} from "../../homey_bridge/devices/weather_device";
@@ -28,22 +30,23 @@ export class WeatherMatterDevice extends MatterDevice {
             this.mTemperatureMeasurement(),
         )
 
-        const composed = new Endpoint(BridgedNodeEndpoint, {
+        const composed = BridgedNodeEndpoint
+            .with(PowerSourceServer.with(PowerSource.Feature.Battery, PowerSource.Feature.Replaceable))
+        const node = new Endpoint(composed, {
             id: this.device.id,
             bridgedDeviceBasicInformation: await this.basicInformation(),
+            powerSource: await this.batteryReplaceablePowerSource(),
         });
-        await this.bridge.add(composed)
+        await this.bridge.add(node)
 
         if (humidity != null) {
             const sensor = HumiditySensorDevice
-            // .with(PowerSourceServer.with(PowerSource.Feature.Battery, PowerSource.Feature.Replaceable))
             const first = await firstValueFrom(humidity)
             const endpoint = new Endpoint(sensor, {
                 id: `${this.device.id}-humidity`,
                 relativeHumidityMeasurement: first,
-                // powerSource: await this.batteryPowerSource()
             })
-            await composed.add(endpoint)
+            await node.add(endpoint)
 
             const subscription = humidity.subscribe(async (value) => {
                 await endpoint.set({
@@ -60,7 +63,7 @@ export class WeatherMatterDevice extends MatterDevice {
                 id: `${this.device.id}-pressure`,
                 pressureMeasurement: first,
             })
-            await composed.add(endpoint)
+            await node.add(endpoint)
 
             const subscription = pressure.subscribe(async (value) => {
                 await endpoint.set({
@@ -77,7 +80,7 @@ export class WeatherMatterDevice extends MatterDevice {
                 id: `${this.device.id}-temperature`,
                 temperatureMeasurement: first,
             })
-            await composed.add(endpoint)
+            await node.add(endpoint)
 
             const subscription = temperature.subscribe(async (value) => {
                 await endpoint.set({

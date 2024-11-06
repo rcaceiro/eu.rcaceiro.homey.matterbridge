@@ -54,27 +54,29 @@ export abstract class MatterDevice implements Device {
         batChargeLevel: number,
         batReplaceability: PowerSource.BatReplaceability,
         batReplacementNeeded: boolean,
-        description?: string,
         order: number,
         status: PowerSource.PowerSourceStatus,
         activeBatFaults?: PowerSource.BatFault[],
+        batPercentRemaining?: number,
         batPresent?: boolean,
         batTimeRemaining?: number,
         batVoltage?: number,
-        endpointList?: number[]
+        description?: string,
+        endpointList?: number[],
     }>> {
         return {
             activeBatFaults: [],
-            batChargeLevel: 69,
+            batChargeLevel: PowerSource.BatChargeLevel.Ok,
+            batPercentRemaining: 100,
             batPresent: true,
             batReplaceability: PowerSource.BatReplaceability.UserReplaceable,
             batReplacementNeeded: false,
             batTimeRemaining: 12,
             batVoltage: 312,
             description: "Primary Battery",
+            endpointList: [],
             order: 0,
             status: PowerSource.PowerSourceStatus.Active,
-            endpointList: [],
         }
     }
 
@@ -84,21 +86,28 @@ export abstract class MatterDevice implements Device {
         batReplaceability: PowerSource.BatReplaceability,
         batReplacementDescription: string,
         batReplacementNeeded: boolean,
-        description: string,
         order: number,
         status: PowerSource.PowerSourceStatus,
         activeBatFaults?: PowerSource.BatFault[],
         batAnsiDesignation?: string,
-        batApprovedChemistry?: PowerSource.BatApprovedChemistry,
+        batApprovedChemistry?: PowerSource.BatApprovedChemistry
         batCapacity?: number,
         batCommonDesignation?: PowerSource.BatCommonDesignation,
         batIecDesignation?: string,
+        batPercentRemaining?: number,
         batPresent?: boolean,
         batTimeRemaining?: number,
         batVoltage?: number,
+        description?: string,
+        endpointList?: number[],
     }>> {
         return {
             ...await this.batteryPowerSource(),
+            batApprovedChemistry: PowerSource.BatApprovedChemistry.Alkaline,
+            batCommonDesignation: PowerSource.BatCommonDesignation.Aa,
+            batQuantity: 1,
+            batReplacementDescription: "sda",
+            batReplacementNeeded: false,
         }
     }
 
