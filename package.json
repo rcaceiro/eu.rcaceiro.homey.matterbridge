@@ -6,11 +6,11 @@
     "start": "homey app run -n host"
   },
   "dependencies": {
-    "@matter/general": "^0.11.2",
-    "@matter/main": "^0.11.2",
-    "@matter/nodejs": "^0.11.2",
-    "@matter/types": "^0.11.2",
-    "homey-api": "^3.6.5",
+    "@matter/general": "^0.11.4",
+    "@matter/main": "^0.11.4",
+    "@matter/nodejs": "^0.11.4",
+    "@matter/types": "^0.11.4",
+    "homey-api": "^3.6.8",
     "rxjs": "^7.8.1"
   },
   "devDependencies": {
