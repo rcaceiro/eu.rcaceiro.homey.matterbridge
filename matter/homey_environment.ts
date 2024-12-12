@@ -10,7 +10,7 @@ export class HomeyEnvironment extends Environment {
             if (debug) {
                 return new StorageBackendMemory({})
             }
-            return new StorageBackendDiskAsync("/userdata/eu.rcaceiro.homey.matterbridge/matter_rc")
+            return new StorageBackendDiskAsync("/userdata/eu.rcaceiro.homey.matterbridge/matter")
         });
         this.set(StorageService, storage)
 
