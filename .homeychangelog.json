@@ -13,5 +13,20 @@
     "pt": "Primeira versão. Vamos testá-lo e ver se funciona corretamente. Suporta sensores meteorológicos (temperatura, humidade e pressão), sensores de contacto e tomadas sem medição de energia.",
     "ru": "Первый релиз. Давайте попробуем и посмотрим, работает ли он нормально. Он поддерживает датчики погоды (температура, влажность и давление), датчики контакта и розетки без измерения энергии.",
     "sv": "Första utgåvan. Låt oss prova och se om det fungerar bra. Det stöder vädersensorer (temperatur, luftfuktighet och tryck), kontaktsensorer och uttag utan energimätning."
+  },
+  "0.0.1": {
+    "da": "Opdater afhængigheder.",
+    "de": "Abhängigkeiten aktualisieren.",
+    "en": "Update dependencies.",
+    "es": "Actualizar dependencias.",
+    "fr": "Mettre à jour les dépendances.",
+    "it": "Aggiorna dipendenze.",
+    "ko": "수정 에지 및 수행.",
+    "nl": "Afhankelijkheden bijwerken.",
+    "no": "Oppdater avhengigheter.",
+    "pl": "Zaktualizuj zależności.",
+    "pt": "Atualizar dependencias.",
+    "ru": "Обновить зависимости.",
+    "sv": "Uppdatera beroenden."
   }
 }
