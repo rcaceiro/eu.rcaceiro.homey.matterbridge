@@ -55,24 +55,38 @@ class MatterBridgeApplication extends Homey.App {
                 isEssential: true,
             },
         );
+
+        this.server.lifecycle.online.then(async () => {
+            const bridge = this.bridge;
+            if (bridge == null) {
+                return
+            }
+            const devices = await this.api.devices.getDevices();
+            for (const index in devices) {
+                const homeyDevice = devices[index]
+
+                const device = await HomeyDeviceBuilder.create(homeyDevice, this.homey.app.manifest.version)
+                if (device == null) {
+                    continue
+                }
+
+                const matter = await MatterDeviceBuilder.create(bridge, device)
+                if (matter == null) {
+                    continue;
+                }
+                this.mDevices.add(matter);
+            }
+        })
+
         await this.server.add(this.bridge);
         await this.server.start();
+    }
 
-        const devices = await this.api.devices.getDevices();
-        for (const index in devices) {
-            const homeyDevice = devices[index]
-
-            const device = await HomeyDeviceBuilder.create(homeyDevice, this.homey.app.manifest.version)
-            if (device == null) {
-                continue
-            }
-
-            const matter = await MatterDeviceBuilder.create(this.bridge, device)
-            if (matter == null) {
-                continue;
-            }
-            this.mDevices.add(matter);
-        }
+    async onUninit() {
+        console.debug("onUninit")
+        await super.onUninit();
+        await this.server?.prepareRuntimeShutdown()
+        await this.server?.close()
     }
 }
 
