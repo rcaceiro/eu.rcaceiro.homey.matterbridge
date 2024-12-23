@@ -5,6 +5,10 @@ import {SocketDevice} from "./socket_device";
 
 export class HomeyDeviceBuilder {
     public static async create(device: any, firmware_version: string): Promise<HomeyDevice | null> {
+        if (device.flags.includes('matter')) {
+            return null;
+        }
+
         switch (device.class) {
             case 'sensor':
                 return await HomeyDeviceBuilder.createSensor(device, firmware_version);
