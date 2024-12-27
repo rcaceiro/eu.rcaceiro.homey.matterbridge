@@ -6,7 +6,7 @@
   "sdk": 3,
   "source": "https://github.com/rcaceiro/eu.rcaceiro.homey.matterbridge",
   "support": "https://github.com/rcaceiro/eu.rcaceiro.homey.matterbridge/issues",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Rúben Caceiro"
   },
@@ -20,10 +20,8 @@
     "lan"
   ],
   "contributors": {
-    "developers": [
-    ],
-    "translators": [
-    ]
+    "developers": [],
+    "translators": []
   },
   "description": {
     "da": "Forbind dine Homey-enheder sømløst til Matter-økosystemet for enhedlig kontrol og udvidet kompatibilitet på tværs af forskellige smarte hjemplatforme.",

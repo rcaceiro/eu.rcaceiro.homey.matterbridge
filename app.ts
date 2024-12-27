@@ -4,7 +4,6 @@ import Homey from 'homey';
 import {AggregatorEndpoint} from "@matter/node/endpoints";
 import {Endpoint, VendorId} from "@matter/main";
 import {HomeyAPI} from "homey-api";
-import {HomeyDeviceBuilder} from "./homey_bridge/devices/builder";
 import {HomeyEnvironment} from "./matter/homey_environment";
 import {MatterDeviceBuilder} from "./matter/devices/builder";
 import {MatterDevice} from "./matter/devices/device";
@@ -26,23 +25,26 @@ class MatterBridgeApplication extends Homey.App {
         this.server = await ServerNode.create({
             id: this.api.id,
             basicInformation: {
+                hardwareVersion: 1,
                 nodeLabel: "Homey Pro",
                 productId: 0,
                 productLabel: "Homey Pro",
                 productName: "Homey Pro",
+                productUrl: "https://homey.app/",
                 reachable: true,
                 serialNumber: this.api.id,
+                softwareVersion: 1,
+                softwareVersionString: this.manifest.version,
                 uniqueId: this.api.id,
                 vendorId: VendorId(0x143C),
                 vendorName: "Athom B.V.",
-                productUrl: "https://homey.app/",
                 productAppearance: {
                     finish: BasicInformation.ProductFinish.Polished,
                     primaryColor: BasicInformation.Color.Black,
                 },
             },
             commissioning: {},
-            environment: new HomeyEnvironment(),
+            environment: new HomeyEnvironment(true),
             productDescription: {
                 name: "Homey Pro",
                 deviceType: AggregatorEndpoint.deviceType,
@@ -63,14 +65,8 @@ class MatterBridgeApplication extends Homey.App {
             }
             const devices = await this.api.devices.getDevices();
             for (const index in devices) {
-                const homeyDevice = devices[index]
-
-                const device = await HomeyDeviceBuilder.create(homeyDevice, this.homey.app.manifest.version)
-                if (device == null) {
-                    continue
-                }
-
-                const matter = await MatterDeviceBuilder.create(bridge, device)
+                const device = devices[index]
+                const matter = await MatterDeviceBuilder.create(bridge, device, this.homey.app.manifest.version)
                 if (matter == null) {
                     continue;
                 }
@@ -87,6 +83,10 @@ class MatterBridgeApplication extends Homey.App {
         await super.onUninit();
         await this.server?.prepareRuntimeShutdown()
         await this.server?.close()
+        for (const device of this.mDevices) {
+            await device.destructor()
+        }
+        this.mDevices.clear()
     }
 }
 

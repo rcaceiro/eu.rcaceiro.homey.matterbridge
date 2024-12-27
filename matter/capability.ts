@@ -23,15 +23,18 @@ export class Capability {
         return this.mSubject.value
     }
 
+    public set value(value: string | number | boolean | null) {
+        this.next(value).then();
+    }
+
     public async destructor() {
         this.mCapability.removeAllListeners();
     }
 
-    public async next(value: string | number | boolean) {
+    public async next(value: string | number | boolean | null) {
+        if (value == null) {
+            return
+        }
         await this.mCapability.setValue(value)
-        // device.setCapabilityValue({
-        //     capabilityId: capability_id,
-        //     value: value,
-        // })
     }
 }

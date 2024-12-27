@@ -2,40 +2,59 @@ import {BridgedNodeEndpoint} from "@matter/main/endpoints";
 import {Endpoint} from "@matter/main";
 import {HumiditySensorDevice} from "@matter/main/devices/humidity-sensor";
 import {MatterDevice} from "./device";
-import {PowerSourceServer} from "@matter/main/behaviors";
-import {PowerSource} from "@matter/main/clusters";
 import {PressureSensorDevice} from "@matter/main/devices/pressure-sensor";
 import {TemperatureSensorDevice} from "@matter/main/devices/temperature-sensor";
-import {WeatherDevice} from "../../homey_bridge/devices/weather_device";
 import {firstValueFrom, map, OperatorFunction} from "rxjs";
+import {Capability} from "../capability";
 
 export class WeatherMatterDevice extends MatterDevice {
-    protected readonly device: WeatherDevice;
+    private mHumidity: Capability | null;
+    private mPressure: Capability | null;
+    private mTemperature: Capability | null;
 
-    constructor(bridge: Endpoint, device: WeatherDevice) {
-        super(bridge, device)
-        this.device = device
+    constructor(
+        bridge: Endpoint,
+        device: any,
+        firmware_version: string,
+    ) {
+        super(bridge, device, firmware_version);
+        this.mHumidity = null
+        this.mPressure = null
+        this.mTemperature = null
     }
 
     protected async initialize(): Promise<void> {
-        const humidity = this.device.humidity?.pipe(
-            map(value => value * 100),
-            this.mHumidityMeasurement(),
-        )
-        const pressure = this.device.pressure?.pipe(
-            this.mPressureMeasurement(),
-        )
-        const temperature = this.device.temperature?.pipe(
-            map(value => value * 100),
-            this.mTemperatureMeasurement(),
-        )
+        this.mHumidity = new Capability(this.device, "measure_humidity")
+        this.mPressure = new Capability(this.device, "measure_pressure")
+        this.mTemperature = new Capability(this.device, "measure_temperature")
+
+        const humidity = this.mHumidity
+            ?.observable
+            ?.pipe(
+                map(value => Number(value)),
+                map(value => value * 100),
+                this.mHumidityMeasurement(),
+            )
+        const pressure = this.mPressure
+            ?.observable
+            ?.pipe(
+                map(value => Number(value)),
+                this.mPressureMeasurement(),
+            )
+        const temperature = this.mTemperature
+            ?.observable
+            ?.pipe(
+                map(value => Number(value)),
+                map(value => value * 100),
+                this.mTemperatureMeasurement(),
+            )
 
         const composed = BridgedNodeEndpoint
-            .with(PowerSourceServer.with(PowerSource.Feature.Battery, PowerSource.Feature.Replaceable))
+            // .with(PowerSourceServer.with(PowerSource.Feature.Battery, PowerSource.Feature.Replaceable))
         const node = new Endpoint(composed, {
             id: this.device.id,
             bridgedDeviceBasicInformation: await this.basicInformation(),
-            powerSource: await this.batteryReplaceablePowerSource(),
+            // powerSource: await this.batteryReplaceablePowerSource(),
         });
         await this.bridge.add(node)
 

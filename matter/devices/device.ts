@@ -1,23 +1,23 @@
-import {Device} from "../../homey_bridge/device";
-import {HomeyDevice} from "../../homey_bridge/devices/device";
-import {Observable, Subscription} from "rxjs";
-import {Power} from "../../homey_bridge/power";
 import {Endpoint} from "@matter/main";
 import {PowerSource} from "@matter/main/clusters";
 import {BasicInformation} from "@matter/types/clusters";
+import {Subscription} from "rxjs";
 
-export abstract class MatterDevice implements Device {
+export abstract class MatterDevice {
     protected readonly bridge: Endpoint;
-    protected readonly device: HomeyDevice
+    protected readonly device: any
+    protected readonly firmware_version: string
     protected readonly subscriptions: Set<Subscription>
 
     protected constructor(
         bridge: Endpoint,
-        device: HomeyDevice,
+        device: any,
+        firmware_version: string,
     ) {
         this.bridge = bridge
         this.device = device
-        this.subscriptions = new Set()
+        this.firmware_version = firmware_version
+        this.subscriptions = new Set<Subscription>();
         this.initialize().then()
     }
 
@@ -37,15 +37,19 @@ export abstract class MatterDevice implements Device {
         return this.device.name
     }
 
-    get powerSource(): Observable<Power.Source> {
-        return this.device.powerSource;
-    }
+    // get powerSource(): Observable<Power.Source> {
+    //     return this.device.powerSource;
+    // }
 
     get serial_number(): string {
         return this.device.serial_number
     }
 
     public async destructor() {
+        this.subscriptions.forEach((sub: Subscription) => {
+            sub.unsubscribe()
+        })
+        this.subscriptions.clear()
     }
 
     protected abstract initialize(): Promise<void>;

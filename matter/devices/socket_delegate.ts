@@ -2,21 +2,24 @@ import {BridgedDeviceBasicInformationServer} from "@matter/node/behaviors";
 import {Endpoint} from "@matter/main";
 import {MatterDevice} from "./device";
 import {OnOffPlugInUnitDevice} from "@matter/main/devices/on-off-plug-in-unit";
-import {SocketDevice} from "../../homey_bridge/devices/socket_device";
 import {firstValueFrom, map, OperatorFunction} from "rxjs";
+import {Capability} from "../capability";
 
 export class SocketMatterDevice extends MatterDevice {
-    protected readonly device: SocketDevice;
+    private mOnoff: Capability | null
 
-    constructor(bridge: Endpoint, device: SocketDevice) {
-        super(bridge, device)
-        this.device = device
+    constructor(
+        bridge: Endpoint,
+        device: any,
+        firmware_version: string,
+    ) {
+        super(bridge, device, firmware_version);
+        this.mOnoff = null
     }
 
     protected async initialize(): Promise<void> {
-        const onoff = this.device.onoff?.pipe(
-            this.mOnOff(),
-        )
+        this.mOnoff = new Capability(this.device, "onoff")
+        const onoff = this.mOnoff?.observable?.pipe(this.mOnOff())
         if (onoff == null) {
             return
         }
@@ -31,18 +34,26 @@ export class SocketMatterDevice extends MatterDevice {
         })
         await this.bridge.add(endpoint)
 
-        endpoint.events.onOff.onOff$Changed.on((value) => {
-            this.device.onoff = value
-        })
-        const subscription = onoff.subscribe(async (value) => {
-            await endpoint.set({
-                onOff: value,
+        endpoint.events
+            .onOff
+            .onOff$Changed
+            .on(async (value) => await this.mOnoff?.next(value))
+
+        const subscription = onoff
+            .pipe(
+                map(onoff => {
+                    return {
+                        onOff: onoff,
+                    }
+                }),
+            )
+            .subscribe(async (value) => {
+                await endpoint.set(value)
             })
-        })
         this.subscriptions.add(subscription)
     }
 
-    private mOnOff(): OperatorFunction<boolean, Partial<{
+    private mOnOff(): OperatorFunction<string | number | boolean | null, Partial<{
         globalSceneControl: boolean,
         offWaitTime: number,
         onTime: number,
@@ -51,7 +62,7 @@ export class SocketMatterDevice extends MatterDevice {
     }>> {
         return map(value => {
             return {
-                onOff: value,
+                onOff: Boolean(value),
             }
         })
     }

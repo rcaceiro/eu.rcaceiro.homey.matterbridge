@@ -28,5 +28,8 @@
     "pt": "Atualizar dependencias.",
     "ru": "Обновить зависимости.",
     "sv": "Uppdatera beroenden."
+  },
+  "0.0.2": {
+    "en": "Optmize for memory performance"
   }
 }
