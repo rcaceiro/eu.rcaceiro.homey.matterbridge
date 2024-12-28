@@ -1,1 +1,7 @@
-{}
+{
+  "settings": {
+    "content_description": {
+      "qr_code": "qr code"
+    }
+  }
+}

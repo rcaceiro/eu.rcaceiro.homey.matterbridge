@@ -8,6 +8,12 @@
   "source": "https://github.com/rcaceiro/eu.rcaceiro.homey.matterbridge",
   "support": "https://github.com/rcaceiro/eu.rcaceiro.homey.matterbridge/issues",
   "version": "0.0.2",
+  "api": {
+    "matter_info": {
+      "method": "GET",
+      "path": "/matter/bridge/info"
+    }
+  },
   "author": {
     "name": "Rúben Caceiro"
   },

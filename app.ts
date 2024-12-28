@@ -9,6 +9,7 @@ import {MatterDeviceBuilder} from "./matter/devices/builder";
 import {MatterDevice} from "./matter/devices/device";
 import {ServerNode} from "@matter/node";
 import {BasicInformation} from "@matter/types/clusters";
+import {Bridge} from "./matter/bridge";
 
 class MatterBridgeApplication extends Homey.App {
     private readonly mDevices: Set<MatterDevice> = new Set();
@@ -87,6 +88,17 @@ class MatterBridgeApplication extends Homey.App {
             await device.destructor()
         }
         this.mDevices.clear()
+    }
+
+    async getMatterInfo(): Promise<Bridge | null> {
+        const pairingCodes = this.server?.state?.commissioning?.pairingCodes
+        if (pairingCodes == null) {
+            return null;
+        }
+        return {
+            qr_code: pairingCodes.qrPairingCode,
+            passcode: pairingCodes.manualPairingCode
+        }
     }
 }
 
