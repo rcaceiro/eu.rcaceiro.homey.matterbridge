@@ -46,5 +46,21 @@
     "pt": "Tentativa de corrigir a falha devido à falta memória. Interface para permitir ver o código QR e o código de emparelhamento manual.",
     "ru": "Пытаемся устранить сбой из-за недостатка памяти. Добавьте пользовательский интерфейс для сканирования QR-кода или просмотра кода ручного сопряжения.",
     "sv": "Försöker åtgärda kraschen på grund av låg minne. Lägg till ett gränssnitt för att skanna QR-koden eller se den manuella parkopplingskoden."
+  },
+  "0.0.4":{
+    "da": "Fjern debug-kode.",
+    "de": "Entfernen Sie Debug-Code.",
+    "en": "Remove debug code",
+    "es": "Eliminar el código de depuración.",
+    "fr": "Supprimer le code de débogage.",
+    "it": "Rimuovi il codice di debug.",
+    "ko": "디버그 코드를 제거합니다.",
+    "nl": "Verwijder de debugcode.",
+    "no": "Fjern feilsøkingskode.",
+    "pl": "Usuń kod debugowania.",
+    "pt": "Remoção de código de depuração.",
+    "ru": "Удалить отладочный код.",
+    "sv": "Ta bort felsökningskoden."
   }
+
 }

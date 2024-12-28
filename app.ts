@@ -45,7 +45,7 @@ class MatterBridgeApplication extends Homey.App {
                 },
             },
             commissioning: {},
-            environment: new HomeyEnvironment(true),
+            environment: new HomeyEnvironment(false),
             productDescription: {
                 name: "Homey Pro",
                 deviceType: AggregatorEndpoint.deviceType,
