@@ -31,5 +31,20 @@
   },
   "0.0.2": {
     "en": "Optmize for memory performance"
+  },
+  "0.0.3":  {
+    "da": "Forsøger at rette nedbruddet på grund af lav hukommelse. Tilføj brugergrænseflade til at scanne QR-kode eller se den manuelle parringskode.",
+    "de": "Versuch, den Absturz aufgrund von geringem Speicher zu beheben. Fügen Sie eine Benutzeroberfläche hinzu, um den QR-Code zu scannen oder den manuellen Pairing-Code anzuzeigen.",
+    "en": "Trying to fix the crash due to low memory. Add UI to allow scan the QR Code or see the manual pairing code",
+    "es": "Intentando solucionar el fallo debido a la baja memoria. Agregue una interfaz de usuario para permitir escanear el código QR o ver el código de emparejamiento manual.",
+    "fr": "Tentative de correction du crash dû à une faible mémoire. Ajoutez une interface utilisateur pour permettre de scanner le code QR ou de voir le code d'appariement manuel.",
+    "it": "Tentativo di correggere il crash dovuto alla memoria insufficiente. Aggiungi un'interfaccia utente per consentire la scansione del codice QR o visualizzare il codice di associazione manuale.",
+    "ko": "메모리 부족으로 인한 충돌을 수정하려고 합니다. QR 코드를 스캔하거나 수동 페어링 코드를 볼 수 있는 UI를 추가합니다.",
+    "nl": "Poging om de crash als gevolg van weinig geheugen te verhelpen. Voeg een UI toe om de QR-code te scannen of de handmatige koppelingscode te bekijken.",
+    "no": "Forsøker å fikse krasj på grunn av lite minne. Legg til grensesnitt for å skanne QR-kode eller se den manuelle sammenkoblingskoden.",
+    "pl": "Próba naprawy awarii spowodowanej brakiem pamięci. Dodaj interfejs użytkownika umożliwiający skanowanie kodu QR lub wyświetlenie kodu parowania ręcznego.",
+    "pt": "Tentativa de corrigir a falha devido à falta memória. Interface para permitir ver o código QR e o código de emparelhamento manual.",
+    "ru": "Пытаемся устранить сбой из-за недостатка памяти. Добавьте пользовательский интерфейс для сканирования QR-кода или просмотра кода ручного сопряжения.",
+    "sv": "Försöker åtgärda kraschen på grund av låg minne. Lägg till ett gränssnitt för att skanna QR-koden eller se den manuella parkopplingskoden."
   }
 }
