@@ -1,5 +1,3 @@
-![logo](assets/icon.svg)
-
 [![Node.js](https://img.shields.io/badge/Node.js-18.0.0-blue.svg?style=flat&logo=node.js)](https://nodejs.org)
 [![Homey Framework](https://img.shields.io/badge/Homey-Framework-blue.svg)](https://apps.developer.athom.com)
 [![Version](https://img.shields.io/badge/version-0.0.4-orange)](https://apps.developer.athom.com)
