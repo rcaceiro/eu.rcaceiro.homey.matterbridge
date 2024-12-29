@@ -1,7 +1,7 @@
 {
   "brandColor": "#800080",
   "compatibility": ">=12.2.0",
-  "homeyCommunityTopicId": 0,
+  "homeyCommunityTopicId": 125841,
   "id": "eu.rcaceiro.homey.matterbridge",
   "sdk": 3,
   "source": "https://github.com/rcaceiro/eu.rcaceiro.homey.matterbridge",
