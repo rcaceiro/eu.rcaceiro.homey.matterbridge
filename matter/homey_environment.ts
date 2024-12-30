@@ -1,16 +1,23 @@
-import {Logger, LogLevel, StorageBackendMemory, StorageService} from "@matter/main";
+import {Logger, LogLevel, StorageService} from "@matter/main";
 import {Environment} from "@matter/general";
+import {HomeyStorage} from "./homey_storage";
+import Homey from "homey";
 import {StorageBackendDiskAsync} from "@matter/nodejs";
 
 export class HomeyEnvironment extends Environment {
-    constructor(debug: boolean = false, environment: Environment = Environment.default) {
+    constructor(
+        homey: Homey.App,
+        debug: boolean = false,
+        environment: Environment = Environment.default,
+    ) {
         super("homey_environment", environment);
 
         let storage = new StorageService(this, () => {
             if (debug) {
-                return new StorageBackendMemory({})
+                return new StorageBackendDiskAsync("/userdata/eu.rcaceiro.homey.matterbridge/matter")
+                // return new HomeyStorage(homey.homey.settings);
             }
-            return new StorageBackendDiskAsync("/userdata/eu.rcaceiro.homey.matterbridge/matter")
+            return new HomeyStorage(homey.homey.settings)
         });
         this.set(StorageService, storage)
 
